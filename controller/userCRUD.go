@@ -1,13 +1,34 @@
 package controller
 
-import "github.com/gin-gonic/gin"
+import (
+	"errors"
+	"gorm.io/gorm"
+	"zugSystem/model"
+)
 
-func getUsers(ctx *gin.Context) {}
+type user interface {
+	getUser(id uint) (user model.User, err error)
+	getUsers() []model.User
+	createUser(user model.User)
+	deleteUser(user model.User)
+	updateUser(user model.User)
+}
 
-func getUser(ctx *gin.Context) {}
+type userImpl struct {
+	Db *gorm.DB
+}
 
-func createUser(ctx *gin.Context) {}
+func (u userImpl) getUser(id uint) (model.User, error) {
+	var user model.User
+	result := u.Db.Find(&user, id)
+	if result != nil {
+		return user, nil
+	}
+	return user, errors.New("Cannot find user")
+}
 
-func deleteUser(ctx *gin.Context) {}
-
-func updateUser(ctx *gin.Context) {}
+func (u userImpl) getUsers() []model.User {
+	var users []model.User
+	result := u.Db.Find(&users)
+	return result
+}

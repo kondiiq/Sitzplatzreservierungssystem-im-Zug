@@ -36,32 +36,32 @@ func main() {
 	}
 	router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerfiles.Handler))
 
-	trackRouter := router.Group("/route")
-	{
-		trackRouter.GET("/")
-		trackRouter.POST("/")
-		trackRouter.GET("/:id")
-		trackRouter.PATCH("/:id")
-		trackRouter.DELETE("/:id")
-	}
-
-	trainRouter := router.Group("/train")
-	{
-		trainRouter.GET("/")
-		trainRouter.POST("/")
-		trainRouter.GET("/:id")
-		trainRouter.PATCH("/:id")
-		trainRouter.DELETE("/:id")
-	}
-
-	ticketRouter := router.Group("/ticket")
-	{
-		ticketRouter.GET("/")
-		ticketRouter.POST("/")
-		ticketRouter.GET("/:id")
-		ticketRouter.PATCH("/:id")
-		ticketRouter.DELETE("/:id")
-	}
+	//trackRouter := router.Group("/route")
+	//{
+	//	trackRouter.GET("/")
+	//	trackRouter.POST("/")
+	//	trackRouter.GET("/:id")
+	//	trackRouter.PATCH("/:id")
+	//	trackRouter.DELETE("/:id")
+	//}
+	//
+	//trainRouter := router.Group("/train")
+	//{
+	//	trainRouter.GET("/")
+	//	trainRouter.POST("/")
+	//	trainRouter.GET("/:id")
+	//	trainRouter.PATCH("/:id")
+	//	trainRouter.DELETE("/:id")
+	//}
+	//
+	//ticketRouter := router.Group("/ticket")
+	//{
+	//	ticketRouter.GET("/")
+	//	ticketRouter.POST("/")
+	//	ticketRouter.GET("/:id")
+	//	ticketRouter.PATCH("/:id")
+	//	ticketRouter.DELETE("/:id")
+	//}
 
 	userRouter := router.Group("/user")
 	{
